@@ -25,6 +25,12 @@ Transformer un fichier de planification en cockpit lisible, suivi par l'orchestr
 Start-Process .\index.html
 ```
 
+## Captures d'ecran
+
+![Capture capture](docs/github-captures/05-bord-planif-2026-06-20_1858-cockpit.png)
+
+![Capture capture](docs/github-captures/05-bord-planif-2026-06-20_1858-planning.png)
+
 ## Variables d'environnement
 
 Aucune variable d'environnement n'a ete detectee par l'orchestrateur.
