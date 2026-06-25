@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bord Planif - Cockpit Web</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="%230078d4"/><text x="32" y="39" font-family="Segoe UI, Arial" font-size="22" font-weight="700" text-anchor="middle" fill="white">BP</text></svg>' />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navigation principale">
+        <div class="brand-block">
+          <span class="brand-mark" aria-hidden="true">BP</span>
+          <div>
+            <h1>Bord Planif</h1>
+            <p>MRP cockpit</p>
+          </div>
+        </div>
+
+        <nav class="nav-list" id="navList"></nav>
+
+        <div class="sidebar-footer">
+          <div class="sync-card">
+            <span class="sync-dot"></span>
+            <div>
+              <strong id="syntheticCount">0 lignes</strong>
+              <span>Données fictives</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="pageEyebrow">Cockpit</p>
+            <h2 id="pageTitle">Tableau de bord</h2>
+          </div>
+          <div class="command-bar" id="commandBar"></div>
+        </header>
+
+        <section class="workspace" id="workspace" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <dialog class="record-dialog" id="recordDialog">
+      <form method="dialog" class="dialog-shell" id="recordForm" novalidate>
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow" id="dialogDataset">Donnée</p>
+            <h3 id="dialogTitle">Modifier</h3>
+          </div>
+          <button class="icon-button" value="cancel" type="button" id="closeDialog" title="Fermer" aria-label="Fermer">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="form-grid" id="formGrid"></div>
+        <div class="dialog-actions">
+          <button class="soft-button" value="cancel" type="button" id="cancelDialog">Annuler</button>
+          <button class="primary-button" value="default" type="submit">
+            <i data-lucide="save"></i>
+            Enregistrer
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <input type="file" id="csvInput" accept=".csv,text/csv" hidden />
+  </body>
+</html>
