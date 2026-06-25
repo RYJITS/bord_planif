@@ -16,12 +16,14 @@ Transformer un fichier de planification en cockpit lisible, suivi par l'orchestr
 ## Installation locale
 
 ```powershell
-# Installation a documenter
+# Aucune installation requise
 ```
 
 ## Lancement
 
-Commande de lancement a documenter selon le projet.
+```powershell
+Start-Process .\index.html
+```
 
 ## Variables d'environnement
 
