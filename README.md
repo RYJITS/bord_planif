@@ -1,43 +1,40 @@
-# Bord Planif - V2
+# Bord PLANIF
 
-Application web locale reconstruite depuis l'analyse structurelle de `BORD_DEC_MRPC17.xlsm`.
+## Concept
 
-La V2 vise un clone fonctionnel du classeur : onglets de feuilles, ruban d'actions, barre de formule, grille type Excel, indicateurs, logique de calcul, archivage, import/export et modification des lignes.
+Tableau de bord de planification autour d'un classeur metier. Il sert a organiser les lignes de suivi, les jalons, les priorites et les donnees utiles au pilotage.
 
-## Fichiers
+Transformer un fichier de planification en cockpit lisible, suivi par l'orchestrateur et pret a etre relie au hub sans ecraser les donnees source.
 
-- `index.html` : point d'entrée de l'application.
-- `styles.css` : design Windows 11 / Fluent, responsive.
-- `app.js` : génération de données fictives, vues, calculs, CRUD, filtres, graphiques, import/export CSV.
+## Fonctionnalites principales
 
-## Données
+- Reference le classeur de planification.
+- Prepare une lecture plus visuelle des jalons et priorites.
+- Garde le suivi orchestrateur et les statuts de publication separes.
+- Peut etre presente dans le hub avec une vignette dediee.
 
-Aucune donnée réelle du fichier Excel n'est reprise.
+## Installation locale
 
-L'application conserve uniquement :
+```powershell
+# Aucune installation requise
+```
 
-- la structure du classeur ;
-- le nombre et le rôle des feuilles ;
-- les volumes de lignes/colonnes ;
-- les familles de formules ;
-- les indicateurs et actions macro observables.
+## Lancement
 
-Volumétrie initiale générée : 14 905 lignes fictives réparties sur 18 feuilles.
+```powershell
+Start-Process .\index.html
+```
 
-Les ajouts, modifications, suppressions et actions simulées sont stockés localement dans le navigateur via `localStorage`. Les données de base sont régénérées par seed déterministe.
+## Captures d'ecran
 
-## Fonctions principales
+![Capture capture](docs/github-captures/05-bord-planif-2026-06-20_1858-cockpit.png)
 
-- vue `Classeur` avec 18 onglets de feuilles ;
-- ruban type Excel : actualisation, archivage, filtres, production, suppression, journal, ajout, import et export ;
-- barre de formule synthétique pour expliquer les calculs de chaque feuille ;
-- grille paginée avec mode compact/complet ;
-- ajout, modification et suppression de lignes ;
-- cockpit KPI avec graphiques canvas ;
-- vues spécialisées Planning, Buffer, Capacité, MET, Sources et Audit ;
-- import/export CSV ;
-- journal local des actions.
+![Capture capture](docs/github-captures/05-bord-planif-2026-06-20_1858-planning.png)
 
-## Utilisation
+## Variables d'environnement
 
-Ouvrir `index.html` dans un navigateur moderne.
+Aucune variable d'environnement n'a ete detectee par l'orchestrateur.
+
+## Securite
+
+Ne jamais publier `.env`, tokens, sessions, logs sensibles, cles privees ou donnees personnelles.

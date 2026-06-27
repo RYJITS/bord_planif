@@ -1,12 +1,12 @@
 # Bord PLANIF
 
-Tableau de bord de planification autour d'un classeur metier. Il sert a organiser les lignes de suivi, les jalons, les priorites et les donnees utiles au pilotage.
+## Concept
 
-## Objectif
+Tableau de bord de planification autour d'un classeur metier. Il sert a organiser les lignes de suivi, les jalons, les priorites et les donnees utiles au pilotage.
 
 Transformer un fichier de planification en cockpit lisible, suivi par l'orchestrateur et pret a etre relie au hub sans ecraser les donnees source.
 
-## Fonctions principales
+## Fonctionnalites principales
 
 - Reference le classeur de planification.
 - Prepare une lecture plus visuelle des jalons et priorites.
