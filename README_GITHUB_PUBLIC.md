@@ -1,4 +1,4 @@
-# Bord PLANIF
+# Bord PLANIF - Cockpit de planification MRP
 
 ## Rapport complet
 
@@ -6,61 +6,67 @@ Ce depot public presente le concept, les fonctions, les choix de conception, les
 
 ## Concept
 
-Tableau de bord de planification autour d'un classeur metier. Il sert a organiser les lignes de suivi, les jalons, les priorites et les donnees utiles au pilotage.
+Application web autonome simulant un cockpit de planification MRP à partir d'une structure métier analysée, avec interface type Excel et données fictives.
 
-Transformer un fichier de planification en cockpit lisible, suivi par l'orchestrateur et pret a etre relie au hub sans ecraser les donnees source.
+Fournir une interface visuelle et interactive pour organiser, suivre et piloter les lignes de planification, jalons, priorités et données opérationnelles sans exposer les données sensibles du fichier source.
 
-Public vise: Usage operationnel: planification, suivi de priorites, lecture rapide d'un planning et preparation d'une interface plus claire.
+Public vise: Utilisateurs opérationnels (planificateurs, managers, équipes métiers) et développeurs souhaitant comprendre ou étendre la logique de planification MRP.
 
 
 ## Fonctionnement de l'application
 
-L'application ouvre une interface type Excel avec ruban d'actions, onglets de feuilles, barre de formule, grille paginee, filtres, mode compact/complet et edition de lignes. Elle genere environ 14 905 lignes fictives sur 18 feuilles: PLANING, BUFFER, CLIENT, SUIVI_MET, capacites CAPAMET, metteurs en train, archives, PRT, starts, machines, confirmations, gammes, nomenclature et versions production. Les calculs JavaScript simulent les taux de couverture, buffers, capacites, retards, statuts planif et heatmaps de charge. Les modifications restent dans le navigateur via localStorage et les tables peuvent etre importees/exportees en CSV.
+L'application s'exécute dans un navigateur moderne et présente une interface composée d'un ruban d'actions, de 18 onglets de feuilles (PLANING, BUFFER, CLIENT, SUIVI_MET, CAPAMET, etc.), d'une barre de formule, d'une grille paginée, de filtres, d'un mode compact/complet et d'une édition de lignes. Elle génère environ 14 905 lignes fictives réparties sur les feuilles, avec des calculs JavaScript simulant les taux de couverture, buffers, capacités, retards et heatmaps de charge. Les modifications sont sauvegardées localement via localStorage et peuvent être importées/exportées en CSV.
 
 ## Fonctions de l'application
 
-- Reference le classeur de planification.
-- Prepare une lecture plus visuelle des jalons et priorites.
-- Garde le suivi orchestrateur et les statuts de publication separes.
-- Peut etre presente dans le hub avec une vignette dediee.
-- Naviguer dans 18 feuilles de planification type Excel
-- Lire un cockpit KPI avec risques, lignes actives, capacites et graphiques canvas
-- Filtrer par statut, semaine, recherche et groupes de colonnes
-- Consulter les vues Planning, Buffer, Capacite, MET, Sources et Audit
-- Ajouter, modifier ou supprimer des lignes fictives
-- Simuler une actualisation et creer un snapshot d'archive
-- Importer et exporter des tables en CSV
-- Conserver les changements locaux dans le navigateur
+- Navigation multi-feuilles (18 onglets)
+- Affichage de cockpits KPI avec risques et indicateurs
+- Filtrage avancé (statut, semaine, recherche, groupes de colonnes)
+- Édition CRUD des lignes fictives
+- Simulation de refresh et création de snapshots
+- Import/export CSV des tables
+- Persistance locale des modifications
+- Génération déterministe de 14 905 lignes fictives sur 18 feuilles
+- Recalcul dynamique des indicateurs (taux de couverture, buffers, capacités, retards)
+- Affichage de heatmaps de charge et graphiques KPI
+- Filtrage multi-critères (statut, semaine, recherche, groupes de colonnes)
+- Édition CRUD des lignes avec validation intégrée
+- Persistance locale des modifications via localStorage
+- Simulation de refresh PowerQuery et journalisation des actions
+- Création de snapshots d'archive depuis les lignes planning
+- Design responsive et compatible Windows 11 / Fluent
 
 ## Actualisations et evolution
 
+- Synchronisation de la documentation projet avec le registre orchestrateur
+- Statut projet : PUBLIC_READY, sécurité : OK_PUBLIC
+- Validation des audits de nettoyage, optimisation et sécurité
+- Préparation GitHub publique validée pour publication
 - Statut courant: PUBLIC_READY.
 - Securite: OK_PUBLIC.
 - Fonctionnement: FONCTIONNEL.
+- Documentation projet synchronisée avec le registre orchestrateur
 
-## Options et conception
+## Comment le projet a ete reflechi et construit
 
-Le projet a ete concu comme un clone fonctionnel et prudent du classeur metier: garder l'ergonomie et la logique de pilotage sans publier les valeurs sensibles du fichier source. La page web separe les jeux fictifs, les calculs recalcules en JavaScript, les vues specialisees et les actions de simulation pour pouvoir presenter ou tester le fonctionnement sans ouvrir le classeur original.
+Le projet a été conçu comme un clone fonctionnel et prudent du classeur métier, en séparant les jeux de données fictifs, les calculs recalculés en JavaScript, les vues spécialisées et les actions de simulation. L'architecture repose sur une interface HTML/CSS/JavaScript autonome, avec une séparation claire entre la logique métier (simulée) et l'interface utilisateur. Les choix de design incluent une grille type Excel, un ruban d'actions, une barre de formule explicative, des graphiques Canvas pour les KPI, et une persistance locale des overrides. Le projet utilise une seed déterministe pour générer les données fictives et recalcule dynamiquement les indicateurs après chaque édition. L'approche CRUD avec modales permet une édition intuitive des lignes.
+
+Cette section doit expliquer les choix qui ont guide le projet: besoin de depart, structure retenue, modules principaux, compromis techniques, interface ou logique metier, et raisons des outils utilises.
 
 ### Outils, IA et moteurs utilises
 
-- Classeur source BORD_DEC_MRPC17.xlsm analyse en structure seulement
-- Interface HTML/CSS/JavaScript autonome
-- Grille type Excel
-- Ruban d'actions
-- Barre de formule explicative
-- Canvas pour graphiques KPI
-- localStorage pour overrides et preferences
-- Import/export CSV
-- JavaScript vanilla
-- Seed deterministe pour donnees fictives
-- Recalcul de formules Excel en fonctions JS
-- Pagination et tri cote client
-- Filtres statut/semaine/recherche
-- Edition CRUD en modale
-- Canvas charts
-- Persistance localStorage
+- HTML5, CSS3, JavaScript vanilla
+- Canvas pour les graphiques KPI
+- localStorage pour la persistance
+- Seed déterministe pour les données fictives
+- Import/export CSV natif
+- Icônes Lucide (via CDN)
+- Architecture statique HTML/CSS/JS
+- Recalcul de formules Excel en JavaScript
+- Pagination et tri côté client
 - Design Windows 11 / Fluent
+- Approche CRUD avec modales
+- Seed déterministe pour reproductibilité
 
 ### Options techniques detectees
 
@@ -71,15 +77,11 @@ Le projet a ete concu comme un clone fonctionnel et prudent du classeur metier: 
 ### Stack et dependances principales
 
 - HTML statique
-- JavaScript vanilla
-- Seed deterministe pour donnees fictives
-- Recalcul de formules Excel en fonctions JS
-- Pagination et tri cote client
-- Filtres statut/semaine/recherche
-- Edition CRUD en modale
-- Canvas charts
-- Persistance localStorage
+- Recalcul de formules Excel en JavaScript
+- Pagination et tri côté client
 - Design Windows 11 / Fluent
+- Approche CRUD avec modales
+- Seed déterministe pour reproductibilité
 
 ### Scripts disponibles
 
@@ -95,19 +97,23 @@ Le projet a ete concu comme un clone fonctionnel et prudent du classeur metier: 
 
 ## Automatisations et comportements internes
 
-- Generation deterministe des donnees fictives au chargement
-- Recalcul automatique des lignes planning et buffer apres edition
-- Sauvegarde locale des ajouts, modifications et suppressions
-- Simulation de refresh PowerQuery et journal d'actualisation
-- Creation de snapshots d'archive depuis les lignes planning
-- Import CSV avec materialisation dans les overrides
-- Export CSV de la vue active
-- Rendu automatique des graphiques selon la vue
+- Génération automatique des données fictives au chargement
+- Recalcul des indicateurs après chaque édition
+- Sauvegarde automatique des modifications dans localStorage
+- Rendu dynamique des graphiques selon la vue active
+- Simulation de refresh et journalisation des actions
 
 ## Installation locale
 
+Aucune installation applicative standard n'est requise. L'application est conçue pour être exécutée localement en ouvrant le fichier index.html dans un navigateur moderne. Prérequis : navigateur web (Chrome, Firefox, Edge, Safari) avec JavaScript activé. Pour une utilisation avancée, il est possible de servir le projet via un serveur local (ex: Live Server dans VS Code) pour éviter les restrictions de sécurité liées au chargement de fichiers locaux.
+
+### Pre-requis
+- Verifier les pre-requis propres au projet dans le README.
+
+### Commandes
 ```powershell
 # Aucune installation requise
+Start-Process .\index.html
 ```
 
 ## Lancement
@@ -115,6 +121,10 @@ Le projet a ete concu comme un clone fonctionnel et prudent du classeur metier: 
 ```powershell
 Start-Process .\index.html
 ```
+
+## Utilisation
+
+1. Ouvrir index.html dans un navigateur. 2. Utiliser le ruban d'actions pour naviguer entre les feuilles (onglets). 3. Appliquer des filtres (statut, semaine, recherche) pour affiner l'affichage. 4. Cliquer sur une ligne pour l'éditer via la modale dédiée. 5. Utiliser les commandes du ruban pour importer/export CSV, simuler un refresh ou créer un snapshot. 6. Les modifications sont sauvegardées automatiquement dans le navigateur et persistent entre les sessions.
 
 ## Captures d'ecran
 
