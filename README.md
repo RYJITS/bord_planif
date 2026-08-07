@@ -1,8 +1,47 @@
 # Bord PLANIF - Cockpit de planification MRP
 
-## Rapport complet
+## Presentation
 
-Ce depot public presente le concept, les fonctions, les choix de conception, les outils utilises, les commandes locales et les captures d'ecran de l'application. Il est genere par l'orchestrateur uniquement apres validation de publication publique.
+Bord PLANIF - Cockpit de planification MRP est presente ici avec son concept, ses fonctions, ses choix de conception et ses informations d'utilisation.
+
+## Demarrage rapide
+
+### Pre-requis
+
+- Git installe localement.
+
+### Installer et lancer
+
+```powershell
+git clone https://github.com/RYJITS/bord_planif.git
+cd bord_planif
+# Aucune installation requise
+Start-Process .\index.html
+```
+
+## Installation locale
+
+Aucune installation applicative standard n'est requise. L'application est conçue pour être exécutée localement en ouvrant le fichier index.html dans un navigateur moderne. Prérequis : navigateur web (Chrome, Firefox, Edge, Safari) avec JavaScript activé. Pour une utilisation avancée, il est possible de servir le projet via un serveur local (ex: Live Server dans VS Code) pour éviter les restrictions de sécurité liées au chargement de fichiers locaux.
+
+### Pre-requis
+- Verifier les pre-requis propres au projet dans le README.
+
+### Commandes
+```powershell
+git clone https://github.com/RYJITS/bord_planif.git
+cd bord_planif
+# Aucune installation requise
+```
+
+## Lancement
+
+```powershell
+Start-Process .\index.html
+```
+
+## Utilisation
+
+1. Ouvrir index.html dans un navigateur. 2. Utiliser le ruban d'actions pour naviguer entre les feuilles (onglets). 3. Appliquer des filtres (statut, semaine, recherche) pour affiner l'affichage. 4. Cliquer sur une ligne pour l'éditer via la modale dédiée. 5. Utiliser les commandes du ruban pour importer/export CSV, simuler un refresh ou créer un snapshot. 6. Les modifications sont sauvegardées automatiquement dans le navigateur et persistent entre les sessions.
 
 ## Concept
 
@@ -27,14 +66,6 @@ L'application s'exécute dans un navigateur moderne et présente une interface c
 - Import/export CSV des tables
 - Persistance locale des modifications
 - Génération déterministe de 14 905 lignes fictives sur 18 feuilles
-- Recalcul dynamique des indicateurs (taux de couverture, buffers, capacités, retards)
-- Affichage de heatmaps de charge et graphiques KPI
-- Filtrage multi-critères (statut, semaine, recherche, groupes de colonnes)
-- Édition CRUD des lignes avec validation intégrée
-- Persistance locale des modifications via localStorage
-- Simulation de refresh PowerQuery et journalisation des actions
-- Création de snapshots d'archive depuis les lignes planning
-- Design responsive et compatible Windows 11 / Fluent
 
 ## Actualisations et evolution
 
@@ -42,16 +73,10 @@ L'application s'exécute dans un navigateur moderne et présente une interface c
 - Statut projet : PUBLIC_READY, sécurité : OK_PUBLIC
 - Validation des audits de nettoyage, optimisation et sécurité
 - Préparation GitHub publique validée pour publication
-- Statut courant: PUBLIC_READY.
-- Securite: OK_PUBLIC.
-- Fonctionnement: FONCTIONNEL.
-- Documentation projet synchronisée avec le registre orchestrateur
 
 ## Comment le projet a ete reflechi et construit
 
 Le projet a été conçu comme un clone fonctionnel et prudent du classeur métier, en séparant les jeux de données fictifs, les calculs recalculés en JavaScript, les vues spécialisées et les actions de simulation. L'architecture repose sur une interface HTML/CSS/JavaScript autonome, avec une séparation claire entre la logique métier (simulée) et l'interface utilisateur. Les choix de design incluent une grille type Excel, un ruban d'actions, une barre de formule explicative, des graphiques Canvas pour les KPI, et une persistance locale des overrides. Le projet utilise une seed déterministe pour générer les données fictives et recalcule dynamiquement les indicateurs après chaque édition. L'approche CRUD avec modales permet une édition intuitive des lignes.
-
-Cette section doit expliquer les choix qui ont guide le projet: besoin de depart, structure retenue, modules principaux, compromis techniques, interface ou logique metier, et raisons des outils utilises.
 
 ### Outils, IA et moteurs utilises
 
@@ -72,7 +97,6 @@ Cette section doit expliquer les choix qui ont guide le projet: besoin de depart
 
 - Type de projet: static-html
 - Lien public: https://planner.c2rdesign.com/
-- Statut securite: OK_PUBLIC
 
 ### Stack et dependances principales
 
@@ -103,29 +127,6 @@ Cette section doit expliquer les choix qui ont guide le projet: besoin de depart
 - Rendu dynamique des graphiques selon la vue active
 - Simulation de refresh et journalisation des actions
 
-## Installation locale
-
-Aucune installation applicative standard n'est requise. L'application est conçue pour être exécutée localement en ouvrant le fichier index.html dans un navigateur moderne. Prérequis : navigateur web (Chrome, Firefox, Edge, Safari) avec JavaScript activé. Pour une utilisation avancée, il est possible de servir le projet via un serveur local (ex: Live Server dans VS Code) pour éviter les restrictions de sécurité liées au chargement de fichiers locaux.
-
-### Pre-requis
-- Verifier les pre-requis propres au projet dans le README.
-
-### Commandes
-```powershell
-# Aucune installation requise
-Start-Process .\index.html
-```
-
-## Lancement
-
-```powershell
-Start-Process .\index.html
-```
-
-## Utilisation
-
-1. Ouvrir index.html dans un navigateur. 2. Utiliser le ruban d'actions pour naviguer entre les feuilles (onglets). 3. Appliquer des filtres (statut, semaine, recherche) pour affiner l'affichage. 4. Cliquer sur une ligne pour l'éditer via la modale dédiée. 5. Utiliser les commandes du ruban pour importer/export CSV, simuler un refresh ou créer un snapshot. 6. Les modifications sont sauvegardées automatiquement dans le navigateur et persistent entre les sessions.
-
 ## Captures d'ecran
 
 ![Capture capture](docs/github-captures/05-bord-planif-2026-06-20_1858-cockpit.png)
@@ -134,7 +135,7 @@ Start-Process .\index.html
 
 ## Variables d'environnement
 
-Aucune variable d'environnement n'a ete detectee par l'orchestrateur.
+Aucune variable d'environnement n'est requise d'apres les fichiers publies.
 
 ## Securite
 
