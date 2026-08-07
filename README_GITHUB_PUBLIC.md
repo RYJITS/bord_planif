@@ -69,10 +69,7 @@ L'application s'exécute dans un navigateur moderne et présente une interface c
 
 ## Actualisations et evolution
 
-- Synchronisation de la documentation projet avec le registre orchestrateur
-- Statut projet : PUBLIC_READY, sécurité : OK_PUBLIC
-- Validation des audits de nettoyage, optimisation et sécurité
-- Préparation GitHub publique validée pour publication
+- Documentation initiale du projet.
 
 ## Comment le projet a ete reflechi et construit
 
@@ -96,7 +93,6 @@ Le projet a été conçu comme un clone fonctionnel et prudent du classeur méti
 ### Options techniques detectees
 
 - Type de projet: static-html
-- Lien public: https://planner.c2rdesign.com/
 
 ### Stack et dependances principales
 
