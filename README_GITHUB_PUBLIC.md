@@ -1,8 +1,8 @@
-# Bord PLANIF - Cockpit de planification MRP
+# Bord PLANIF - Toolkit de planification
 
 ## Presentation
 
-Bord PLANIF - Cockpit de planification MRP est presente ici avec son concept, ses fonctions, ses choix de conception et ses informations d'utilisation.
+Bord PLANIF - Toolkit de planification est presente ici avec son concept, ses fonctions, ses choix de conception et ses informations d'utilisation.
 
 ## Demarrage rapide
 
@@ -21,7 +21,7 @@ Start-Process .\index.html
 
 ## Installation locale
 
-Aucune installation applicative standard n'est requise. L'application est conçue pour être exécutée localement en ouvrant le fichier index.html dans un navigateur moderne. Prérequis : navigateur web (Chrome, Firefox, Edge, Safari) avec JavaScript activé. Pour une utilisation avancée, il est possible de servir le projet via un serveur local (ex: Live Server dans VS Code) pour éviter les restrictions de sécurité liées au chargement de fichiers locaux.
+Aucune installation applicative standard n'est requise. Ouvrir index.html dans un navigateur moderne avec JavaScript active. Pour une utilisation plus confortable, le dossier peut aussi etre servi par un petit serveur local.
 
 ### Pre-requis
 - Verifier les pre-requis propres au projet dans le README.
@@ -41,54 +41,58 @@ Start-Process .\index.html
 
 ## Utilisation
 
-1. Ouvrir index.html dans un navigateur. 2. Utiliser le ruban d'actions pour naviguer entre les feuilles (onglets). 3. Appliquer des filtres (statut, semaine, recherche) pour affiner l'affichage. 4. Cliquer sur une ligne pour l'éditer via la modale dédiée. 5. Utiliser les commandes du ruban pour importer/export CSV, simuler un refresh ou créer un snapshot. 6. Les modifications sont sauvegardées automatiquement dans le navigateur et persistent entre les sessions.
+Ouvrir l'application, choisir une vue, filtrer les lignes utiles, controler les indicateurs du cockpit, corriger ou completer les lignes de planning, puis exporter ou archiver un etat lorsque c'est necessaire.
 
 ## Concept
 
-Application web autonome simulant un cockpit de planification MRP à partir d'une structure métier analysée, avec interface type Excel et données fictives.
+Application web de planification MRP pour suivre les lignes a planifier, les priorites, les capacites, les retards et les indicateurs de pilotage.
 
-Fournir une interface visuelle et interactive pour organiser, suivre et piloter les lignes de planification, jalons, priorités et données opérationnelles sans exposer les données sensibles du fichier source.
+Donner une vue claire et exploitable du planning operationnel: savoir quoi traiter, quoi surveiller, ou sont les blocages et quelles capacites restent disponibles.
 
-Public vise: Utilisateurs opérationnels (planificateurs, managers, équipes métiers) et développeurs souhaitant comprendre ou étendre la logique de planification MRP.
+Public vise: Planificateurs, responsables d'activite, equipes supply chain et production qui veulent piloter un planning sans se perdre dans un tableau brut.
 
 
 ## Fonctionnement de l'application
 
-L'application s'exécute dans un navigateur moderne et présente une interface composée d'un ruban d'actions, de 18 onglets de feuilles (PLANING, BUFFER, CLIENT, SUIVI_MET, CAPAMET, etc.), d'une barre de formule, d'une grille paginée, de filtres, d'un mode compact/complet et d'une édition de lignes. Elle génère environ 14 905 lignes fictives réparties sur les feuilles, avec des calculs JavaScript simulant les taux de couverture, buffers, capacités, retards et heatmaps de charge. Les modifications sont sauvegardées localement via localStorage et peuvent être importées/exportées en CSV.
+L'application s'ouvre dans un navigateur et presente un cockpit avec indicateurs, ruban d'actions, vues specialisees, grille paginee, filtres et edition de lignes. L'utilisateur peut passer d'une vue planning a une vue capacite ou audit, filtrer les informations, modifier une ligne, simuler une actualisation, exporter les donnees en CSV ou creer un snapshot. Les changements restent sauvegardes localement dans le navigateur.
 
 ## Fonctions de l'application
 
-- Navigation multi-feuilles (18 onglets)
-- Affichage de cockpits KPI avec risques et indicateurs
-- Filtrage avancé (statut, semaine, recherche, groupes de colonnes)
-- Édition CRUD des lignes fictives
-- Simulation de refresh et création de snapshots
-- Import/export CSV des tables
-- Persistance locale des modifications
-- Génération déterministe de 14 905 lignes fictives sur 18 feuilles
+- Afficher un cockpit KPI de planification
+- Naviguer dans les vues Planning, Buffer, Capacite, MET, Sources et Audit
+- Filtrer les lignes par statut, semaine, recherche et groupes de colonnes
+- Identifier rapidement les retards, risques, blocages et priorites
+- Modifier, ajouter ou supprimer des lignes de planning dans l'interface
+- Recalculer les indicateurs de couverture, capacite, buffer et retard
+- Afficher des graphiques et heatmaps de charge
+- Importer et exporter des tables en CSV
 
 ## Actualisations et evolution
 
-- Documentation initiale du projet.
+- Fiche recentree sur l'usage de l'application et non sur la reconstruction technique initiale
+- Retrait du lien application incorrect tant qu'aucun lien public fiable n'est valide
+- Lien GitHub conserve comme source publique correcte
+- Fiche recentree sur l'usage de l'application
+- Retrait du lien application incorrect
+- Conservation du lien GitHub public correct
 
 ## Comment le projet a ete reflechi et construit
 
-Le projet a été conçu comme un clone fonctionnel et prudent du classeur métier, en séparant les jeux de données fictifs, les calculs recalculés en JavaScript, les vues spécialisées et les actions de simulation. L'architecture repose sur une interface HTML/CSS/JavaScript autonome, avec une séparation claire entre la logique métier (simulée) et l'interface utilisateur. Les choix de design incluent une grille type Excel, un ruban d'actions, une barre de formule explicative, des graphiques Canvas pour les KPI, et une persistance locale des overrides. Le projet utilise une seed déterministe pour générer les données fictives et recalcule dynamiquement les indicateurs après chaque édition. L'approche CRUD avec modales permet une édition intuitive des lignes.
+Le projet est une application statique HTML, CSS et JavaScript concue comme un outil de pilotage leger. La logique cote client gere la navigation, les filtres, les calculs d'indicateurs, les graphiques, les heatmaps, les modales d'edition, l'import/export CSV et la persistance locale. Le jeu de demonstration reste fictif pour presenter les fonctions sans exposer de donnees sensibles.
 
 ### Outils, IA et moteurs utilises
 
-- HTML5, CSS3, JavaScript vanilla
+- HTML5, CSS3 et JavaScript vanilla
 - Canvas pour les graphiques KPI
 - localStorage pour la persistance
-- Seed déterministe pour les données fictives
 - Import/export CSV natif
-- Icônes Lucide (via CDN)
 - Architecture statique HTML/CSS/JS
-- Recalcul de formules Excel en JavaScript
-- Pagination et tri côté client
-- Design Windows 11 / Fluent
-- Approche CRUD avec modales
-- Seed déterministe pour reproductibilité
+- Calculs cote client
+- Pagination et tri cote client
+- Filtres synchronises
+- Modales d'edition
+- Rendu dynamique des graphiques
+- Persistance locale
 
 ### Options techniques detectees
 
@@ -97,11 +101,12 @@ Le projet a été conçu comme un clone fonctionnel et prudent du classeur méti
 ### Stack et dependances principales
 
 - HTML statique
-- Recalcul de formules Excel en JavaScript
-- Pagination et tri côté client
-- Design Windows 11 / Fluent
-- Approche CRUD avec modales
-- Seed déterministe pour reproductibilité
+- Calculs cote client
+- Pagination et tri cote client
+- Filtres synchronises
+- Modales d'edition
+- Rendu dynamique des graphiques
+- Persistance locale
 
 ### Scripts disponibles
 
@@ -117,11 +122,11 @@ Le projet a été conçu comme un clone fonctionnel et prudent du classeur méti
 
 ## Automatisations et comportements internes
 
-- Génération automatique des données fictives au chargement
-- Recalcul des indicateurs après chaque édition
+- Generation du jeu de demonstration au chargement
+- Recalcul des indicateurs apres edition
 - Sauvegarde automatique des modifications dans localStorage
 - Rendu dynamique des graphiques selon la vue active
-- Simulation de refresh et journalisation des actions
+- Simulation d'actualisation et journalisation des actions
 
 ## Captures d'ecran
 
