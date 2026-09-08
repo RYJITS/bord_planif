@@ -12,7 +12,7 @@ Projet explique sur Site Ma Methode: la fiche publique peut presenter son utilit
 - Fonctionnement: fonctionnel.
 - Securite: OK pour une presentation publique.
 - Ma Methode: fiche explicative visible.
-- Publication externe: candidat public, validation finale separee.
+- Publication externe: GitHub public actif.
 
 ## A quoi sert le projet
 Bord PLANIF est un toolkit de planification MRP. L'application aide a piloter un planning operationnel en regroupant les lignes a traiter, les statuts, les priorites, les capacites, les retards, les risques et les indicateurs utiles dans une interface claire. Elle sert a voir rapidement ce qui doit etre planifie, ce qui est bloque, ce qui est sous surveillance et ce qui peut etre archive.
@@ -57,9 +57,9 @@ Ouvrir l'application, choisir une vue, filtrer les lignes utiles, controler les 
 - Simulation d'actualisation et journalisation des actions
 
 ## Captures d'ecran
-![Capture 1 - Bord PLANIF](docs/captures/05-bord-planif-2026-06-20_1858-cockpit.png)
+![Capture 1 - Bord PLANIF](docs/github-captures/05-bord-planif-2026-06-20_1858-planning.png)
 
-![Capture 2 - Bord PLANIF](docs/captures/05-bord-planif-2026-06-20_1858-planning.png)
+![Capture 2 - Bord PLANIF](docs/github-captures/05-bord-planif-2026-06-20_1858-cockpit.png)
 
 ## Mises a jour
 - Fiche recentree sur l'usage de l'application
