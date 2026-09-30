@@ -69,3 +69,6 @@ venv/
 _tmp/
 searxng-src/
 *.pyc
+
+# Classeur prive exclu de l'historique Git
+BORD_DEC_MRPC17.xlsm
